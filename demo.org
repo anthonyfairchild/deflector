@@ -1,0 +1,70 @@
+* Game Demo for Tapad
+
+
+** My Backround
+*** Coded games since, like, forever
+
+*** Coded games in:
+**** OpenGL w/c++ C++
+**** Pygame
+**** MSFT XNA
+**** Java LibGDX
+**** Unity3D
+
+
+** Godot Features:
+*** All-inclusive game engine
+*** Free Open Source
+*** Runs on all platforms that matter to me.  iOS, Android, Web, Windows, Mac, Linux
+*** Excellent for 2D but can also do 3D.
+*** Supports C#, C++ and GDScript
+
+*** Supports plugins, asset libraries
+*** Compare with Unity3D, Unreal Engine
+
+
+** Simple sprite rotation demo
+
+** Game Topics:
+*** Game Loop
+**** Poll for Input (mouse, keyboard, controller)
+**** Update game state
+**** Render Game state
+
+*** 2D vs 3D
+*** Scenes
+*** Sprite Sheets
+*** Physics Engine
+*** Tilemaps
+*** Sound
+*** Animations
+
+
+** CS Topics:
+*** Component-based design
+**** Composition over inheritance
+**** Every game object can be a scene
+*** Loose coupling
+**** Scenes should work on their own
+**** Duck typing
+**** Signals
+**** Groups
+**** Dependency injection
+*** Rapid iteration / “quick and dirty”
+**** A working game is the most important thing
+*** Coroutines
+
+
+
+** Game demos
+*** Deflector
+*** Tsuika
+*** Untitled Home Invasion Game
+*** Fillabits
+
+
+** Game Resources:
+*** KidsCanCode
+*** GDQuest
+*** GamesFromScratch
+*** Game Jams - Ludum Dare, itch.io

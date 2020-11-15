@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/ui/title_screen/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/ui/Logo 4x.png" type="Texture" id=2]
+[ext_resource path="res://assets/sounds/music/Visager_-_17_-_Airship_Loop.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/ui/title_screen/buttons/1-PlayerButtonPressed.tres" type="Texture" id=4]
+[ext_resource path="res://scenes/ui/title_screen/buttons/1-PlayerButtonNormal.tres" type="Texture" id=5]
+[ext_resource path="res://scenes/ui/title_screen/buttons/AboutButtonPressed.tres" type="Texture" id=6]
+[ext_resource path="res://scenes/ui/title_screen/buttons/AboutButtonNormal.tres" type="Texture" id=7]
+[ext_resource path="res://scenes/ui/title_screen/buttons/2-PlayerButtonPressed.tres" type="Texture" id=8]
+[ext_resource path="res://scenes/ui/title_screen/buttons/2-PlayerButtonNormal.tres" type="Texture" id=9]
+[ext_resource path="res://scenes/ui/title_screen/buttons/SettingsButtonNormal.tres" type="Texture" id=10]
+[ext_resource path="res://scenes/ui/title_screen/buttons/OnlineButtonNormal.tres" type="Texture" id=11]
+[ext_resource path="res://scenes/ui/title_screen/buttons/SettingsButtonPressed.tres" type="Texture" id=12]
+[ext_resource path="res://scenes/ui/title_screen/buttons/OnlineButtonPressed.tres" type="Texture" id=13]
+[ext_resource path="res://assets/sounds/effects/Menu Select.wav" type="AudioStream" id=14]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 152.0
+margin_top = 72.0
+margin_right = 488.0
+margin_bottom = 568.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+margin_right = 336.0
+margin_bottom = 240.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 256.0
+margin_right = 336.0
+margin_bottom = 496.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 64.0
+margin_right = 272.0
+margin_bottom = 240.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer/MarginContainer"]
+margin_right = 208.0
+margin_bottom = 240.0
+custom_constants/separation = 20
+
+[node name="OnePlayerButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+
+[node name="TwoPlayerButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 208.0
+margin_bottom = 84.0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+
+[node name="OnlineTextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 104.0
+margin_right = 208.0
+margin_bottom = 136.0
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+
+[node name="SettingsButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 156.0
+margin_right = 208.0
+margin_bottom = 188.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+
+[node name="AboutButton" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer"]
+margin_top = 208.0
+margin_right = 208.0
+margin_bottom = 240.0
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -20.0
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -20.0
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/OnePlayerButton" to="." method="_on_OnePlayerButton_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/OnePlayerButton" to="." method="_on_OnePlayerButton_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/OnePlayerButton" to="." method="_on_OnePlayerButton_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/TwoPlayerButton" to="." method="_on_TwoPlayerButton_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/TwoPlayerButton" to="." method="_on_TwoPlayerButton_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/TwoPlayerButton" to="." method="_on_TwoPlayerButton_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/OnlineTextureButton" to="." method="_on_OnlineTextureButton_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/OnlineTextureButton" to="." method="_on_OnlineTextureButton_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/OnlineTextureButton" to="." method="_on_OnlineTextureButton_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="focus_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/AboutButton" to="." method="_on_AboutButton_focus_entered"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/AboutButton" to="." method="_on_AboutButton_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MarginContainer/VBoxContainer/AboutButton" to="." method="_on_AboutButton_pressed"]

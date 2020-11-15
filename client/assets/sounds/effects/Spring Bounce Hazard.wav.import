@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spring Bounce Hazard.wav-f19e1e88947bea5a67b1c53aa60900aa.sample"
+
+[deps]
+
+source_file="res://assets/sounds/effects/Spring Bounce Hazard.wav"
+dest_files=[ "res://.import/Spring Bounce Hazard.wav-f19e1e88947bea5a67b1c53aa60900aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

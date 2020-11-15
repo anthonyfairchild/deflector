@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/bullet/GreenBullet.tres" type="Texture" id=1]
+[ext_resource path="res://scenes/bullet/Bullet.gd" type="Script" id=2]
+[ext_resource path="res://scenes/bullet/YellowBullet.tres" type="Texture" id=3]
+[ext_resource path="res://scenes/bullet/RedBullet.tres" type="Texture" id=4]
+[ext_resource path="res://scenes/bullet/BlueBullet.tres" type="Texture" id=5]
+[ext_resource path="res://assets/sounds/effects/Shoot 2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/effects/Bullet Bounce Wall.wav" type="AudioStream" id=7]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.0
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 22
+mode = 2
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+script = ExtResource( 2 )
+green_bullet_texture = ExtResource( 1 )
+blue_bullet_texture = ExtResource( 5 )
+red_bullet_texture = ExtResource( 4 )
+yellow_bullet_texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/exploding = SubResource( 3 )
+anims/flying = SubResource( 4 )
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+
+[node name="Bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0

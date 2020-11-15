@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ship/NpcController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ship/Ship.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/level/Level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/test_game/TestGame.gd" type="Script" id=4]
+[ext_resource path="res://scenes/ship/PlayerController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/music/Visager_-_17_-_Welcome_Player_Loop.ogg" type="AudioStream" id=6]
+
+[node name="TestGame" type="Node2D"]
+pause_mode = 1
+script = ExtResource( 4 )
+
+[node name="Level" parent="." instance=ExtResource( 3 )]
+players = [ NodePath("PlayerShip"), NodePath("NpcShip1"), NodePath("NpcShip2"), NodePath("NpcShip3") ]
+
+[node name="PlayerShip" parent="Level" instance=ExtResource( 2 )]
+
+[node name="PlayerController" parent="Level/PlayerShip" instance=ExtResource( 5 )]
+position = Vector2( -2560, -2560 )
+ship_node_path = NodePath("..")
+
+[node name="NpcShip1" parent="Level" instance=ExtResource( 2 )]
+ship_color = 1
+
+[node name="NpcController" parent="Level/NpcShip1" instance=ExtResource( 1 )]
+ship_node_path = NodePath("..")
+level_node_path = NodePath("../..")
+
+[node name="NpcShip2" parent="Level" instance=ExtResource( 2 )]
+ship_color = 2
+
+[node name="NpcShip3" parent="Level" instance=ExtResource( 2 )]
+ship_color = 3
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+[connection signal="died" from="Level/PlayerShip" to="." method="_on_PlayerShip_died"]

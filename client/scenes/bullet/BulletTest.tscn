@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/bullet/BulletTest.gd" type="Script" id=1]
+[ext_resource path="res://scenes/bullet/Bullet.tscn" type="PackedScene" id=2]
+
+[node name="BulletTest" type="Node2D"]
+script = ExtResource( 1 )
+bullet_scene = ExtResource( 2 )
+
+[node name="BulletSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 712, 712 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

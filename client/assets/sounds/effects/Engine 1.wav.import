@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Engine 1.wav-3a542cd842001f85c60b6fa5dc74c1a4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/effects/Engine 1.wav"
+dest_files=[ "res://.import/Engine 1.wav-3a542cd842001f85c60b6fa5dc74c1a4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

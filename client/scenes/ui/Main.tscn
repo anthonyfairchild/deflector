@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ui/Main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ui/title_screen/TitleScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/test_game/TestGame.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/pause_screen/PauseScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ui/game_countdown_screen/CountdownScreen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/about_screen/AboutScreen.tscn" type="PackedScene" id=6]
+
+[node name="Main" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+title_screen_scene = ExtResource( 2 )
+game_screen_scene = ExtResource( 3 )
+pause_screen_scene = ExtResource( 4 )
+countdown_screen_scene = ExtResource( 5 )
+about_screen_scene = ExtResource( 6 )

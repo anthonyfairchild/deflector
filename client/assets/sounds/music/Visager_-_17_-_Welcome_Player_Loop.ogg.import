@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Visager_-_17_-_Welcome_Player_Loop.ogg-4e6e4e210729aed0c424e682aa26980a.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/Visager_-_17_-_Welcome_Player_Loop.ogg"
+dest_files=[ "res://.import/Visager_-_17_-_Welcome_Player_Loop.ogg-4e6e4e210729aed0c424e682aa26980a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

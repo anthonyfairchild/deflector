@@ -1,0 +1,161 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://scenes/ui/about_screen/link_normal.tres" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/about_screen/credits.tres" type="Texture" id=2]
+[ext_resource path="res://scenes/ui/about_screen/anthonyf.tres" type="Texture" id=3]
+[ext_resource path="res://scenes/ui/about_screen/visager.tres" type="Texture" id=4]
+[ext_resource path="res://scenes/ui/about_screen/assets.tres" type="Texture" id=5]
+[ext_resource path="res://scenes/ui/about_screen/game_design.tres" type="Texture" id=6]
+[ext_resource path="res://scenes/ui/about_screen/link_pressed.tres" type="Texture" id=7]
+[ext_resource path="res://scenes/ui/about_screen/technical_design.tres" type="Texture" id=8]
+[ext_resource path="res://scenes/ui/about_screen/programming.tres" type="Texture" id=9]
+[ext_resource path="res://scenes/ui/about_screen/music.tres" type="Texture" id=10]
+[ext_resource path="res://scenes/ui/about_screen/osocentaur.tres" type="Texture" id=11]
+[ext_resource path="res://scenes/ui/common/BackButton.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/ui/about_screen/AboutScreen.gd" type="Script" id=14]
+[ext_resource path="res://assets/sounds/music/Visager_-_18_-_Dark_Sanctum_Boss_Fight_Loop.ogg" type="AudioStream" id=15]
+
+[node name="AboutScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 126.0
+margin_top = 46.0
+margin_right = 514.0
+margin_bottom = 593.0
+custom_constants/separation = 24
+
+[node name="Credits" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 388.0
+margin_bottom = 32.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Credits"]
+margin_left = 120.0
+margin_right = 268.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+
+[node name="Techincal Design & Programming" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 56.0
+margin_right = 388.0
+margin_bottom = 124.0
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/VBoxContainer/Techincal Design & Programming"]
+margin_right = 388.0
+margin_bottom = 32.0
+texture = ExtResource( 8 )
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/VBoxContainer/Techincal Design & Programming"]
+margin_top = 36.0
+margin_right = 388.0
+margin_bottom = 68.0
+texture = ExtResource( 9 )
+
+[node name="Anthony" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 148.0
+margin_right = 388.0
+margin_bottom = 180.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Anthony"]
+margin_left = 104.0
+margin_right = 284.0
+margin_bottom = 32.0
+texture = ExtResource( 3 )
+
+[node name="Game Design & Assets" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 204.0
+margin_right = 388.0
+margin_bottom = 272.0
+
+[node name="TextureRect4" type="TextureRect" parent="CenterContainer/VBoxContainer/Game Design & Assets"]
+margin_right = 388.0
+margin_bottom = 32.0
+texture = ExtResource( 6 )
+
+[node name="TextureRect5" type="TextureRect" parent="CenterContainer/VBoxContainer/Game Design & Assets"]
+margin_top = 36.0
+margin_right = 388.0
+margin_bottom = 68.0
+texture = ExtResource( 5 )
+
+[node name="Onocentaur" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 296.0
+margin_right = 388.0
+margin_bottom = 328.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Onocentaur"]
+margin_left = 78.0
+margin_right = 310.0
+margin_bottom = 32.0
+texture = ExtResource( 11 )
+
+[node name="Music" type="TextureRect" parent="CenterContainer/VBoxContainer"]
+margin_top = 352.0
+margin_right = 388.0
+margin_bottom = 384.0
+texture = ExtResource( 10 )
+
+[node name="Visager" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 408.0
+margin_right = 388.0
+margin_bottom = 440.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/Visager"]
+margin_left = 70.0
+margin_right = 317.0
+margin_bottom = 32.0
+custom_constants/separation = 19
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/Visager/HBoxContainer"]
+margin_right = 148.0
+margin_bottom = 32.0
+texture = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/Visager/HBoxContainer"]
+margin_left = 167.0
+margin_right = 247.0
+margin_bottom = 32.0
+
+[node name="VisagerLinkButton" type="TextureButton" parent="CenterContainer/VBoxContainer/Visager/HBoxContainer/CenterContainer"]
+margin_top = 4.0
+margin_right = 80.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 464.0
+margin_right = 388.0
+margin_bottom = 547.0
+custom_constants/margin_top = 15
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+margin_top = 15.0
+margin_right = 388.0
+margin_bottom = 83.0
+
+[node name="BackButton" parent="CenterContainer/VBoxContainer/MarginContainer/CenterContainer" instance=ExtResource( 12 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 116.0
+margin_right = 272.0
+margin_bottom = 68.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -20.0
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Visager/HBoxContainer/CenterContainer/VisagerLinkButton" to="." method="_on_VisagerLinkButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/CenterContainer/BackButton" to="." method="_on_BackButton_pressed"]

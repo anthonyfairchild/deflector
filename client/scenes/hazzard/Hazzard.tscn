@@ -1,0 +1,133 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/images/Deflector no bg .png" type="Texture" id=1]
+[ext_resource path="res://scenes/hazzard/Hazzard.gd" type="Script" id=2]
+[ext_resource path="res://scenes/hazzard/hazzard.tres" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/effects/Hazard Bounce Wall.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/effects/Bullet Hit Hazard.wav" type="AudioStream" id=5]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 3 )
+region = Rect2( 128, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 3 )
+region = Rect2( 160, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 1280, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 896, 128, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), null ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 320, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 18 ) ],
+"loop": false,
+"name": "face",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=12]
+resource_name = "default"
+
+[sub_resource type="Animation" id=13]
+resource_name = "hit"
+length = 0.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("FaceSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "face" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FaceSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[node name="Hazzard" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 30
+mode = 2
+mass = 10.0
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+contacts_reported = 1
+contact_monitor = true
+linear_damp = 0.0
+angular_damp = 0.0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="BodySprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 8 )
+animation = "New Anim"
+frame = 1
+playing = true
+
+[node name="FaceSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 11 )
+animation = "face"
+
+[node name="Bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 12 )
+anims/hit = SubResource( 13 )
+
+[node name="BulletHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -20.0
+[connection signal="body_entered" from="." to="." method="_on_Hazzard_body_entered"]
